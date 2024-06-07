@@ -3,6 +3,7 @@
 APlayerPawn::APlayerPawn(): Speed(0)
 {
 	PrimaryActorTick.bCanEverTick = true;
+	RightVector = GetActorRightVector();
 }
 
 void APlayerPawn::BeginPlay()
@@ -23,7 +24,7 @@ void APlayerPawn::OnMoveLeft(const float Value) { MoveHorizontal(-Value); }
 void APlayerPawn::MoveHorizontal(const float Value)
 {
 	if(Value == 0.0f) return;
-	AddMovementInput(FVector(Value * Speed, 0.0f, 0.0f));
+	AddMovementInput(RightVector, Value * Speed);
 }
 
 void APlayerPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)

@@ -21,5 +21,7 @@ protected:
 	void OnMoveLeft(const float Value);
 	void OnMoveRight(const float Value);
 	void MoveHorizontal(const float Value);
-	
+
+private:
+	FVector RightVector;
 };
